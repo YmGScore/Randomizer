@@ -1,18 +1,23 @@
-document.getElementbyId("generate").onclick = function() {
+document.getElementById("generate").onclick = function() {
     const randomFiles = [
-        "https://www.wildnatureimages.com/images/640/070620-014-The-Tetons.jpg",
-        "https://www.wildnatureimages.com/images/640/070620-014-The-Tetons.jpg",
+        "https://cdn.shopify.com/s/files/1/1061/1924/files/Hugging_Face_Emoji_2028ce8b-c213-4d45-94aa-21e1a0842b4d_large.png?15202324258887420558",
+        "https://img.freepik.com/free-vector/all-right-emoji-illustration_23-2151345565.jpg?w=360",
     ]; //put your files here
 
-    const randomIndex = Math.floor(Math.random() * (randomFiles.length)); 
+    var randomIndex = Math.floor(Math.random() * (randomFiles.length)); 
     //generate a random index
 
-    const randomFile = randomFiles[randomIndex]; 
+    var randomImage = randomFiles[randomIndex]; 
     //get the random file from the array
 
-    const imageElement = document.getElementById("randomImage"); 
+    var imageElement = document.getElementById("randomImage"); 
     //get the image element
 
-    imageElement.src = randomFile; 
+    imageElement.src = randomImage; 
     //set the src of the image element to the random file
+
+    if (randomFiles.length === 0) {
+        console.error("No files available to randomize.");
+        return;
+    }
 };
