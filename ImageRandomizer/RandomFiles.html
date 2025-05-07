@@ -1,17 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Random Image</title>
+    <title>Generate a random image</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Image</title>
 </head>
 <body>  
-    <h1>Create a random Image</h1>
+    <h1>Create a Random Image</h1>
     <p>Click the button below to generate a random image.</p>
     <button id="generate">Generate</button>
     <br><br>
     <img id="randomImage" src="" style="max-width: 300px; max-height: 300px;" /><br>
-    <script src="RandomFiles.js"></script>
+
+    <script>
+        document.getElementById("generate").onclick = function() {
+            const randomFiles = [
+                "https://cdn.shopify.com/s/files/1/1061/1924/files/Hugging_Face_Emoji_2028ce8b-c213-4d45-94aa-21e1a0842b4d_large.png?15202324258887420558",
+                "https://img.freepik.com/free-vector/all-right-emoji-illustration_23-2151345565.jpg?w=360"
+            ]; // Put your files here
+
+            var randomIndex = Math.floor(Math.random() * randomFiles.length); 
+            // Generate a random index
+
+            var randomImage = randomFiles[randomIndex]; 
+            // Get the random file from the array
+
+            var imageElement = document.getElementById("randomImage"); 
+            // Get the image element
+
+            imageElement.src = randomImage; 
+            // Set the src of the image element to the random file
+
+            if (randomFiles.length === 0) {
+                console.error("No files available to randomize.");
+                return;
+            }
+        };
+    </script>
 </body>
 </html>
